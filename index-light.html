@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaimarra | High-Performance Polymer Composite Platform</title>
+  <meta name="description" content="Kaimarra's patented chemistry enables extreme filler loading in any thermoplastic — unlocking biodegradable composites and high-performance structural materials on existing equipment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --black:#ffffff;--off-black:#f7f7f7;--dark:#f0f0f0;--panel:#e8e8e8;
+      --border:#d6d6d6;--green:#5fa800;--white:#111111;--grey:#666;
+      --font-display:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;
+      --font-mono:'DM Mono',monospace;--max:1160px;--pad:clamp(1.5rem,4vw,3rem)
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+    .tag{display:inline-block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:1.1rem}
+    .section-title{font-family:var(--font-display);font-size:clamp(2.6rem,4.5vw,4.2rem);line-height:.97;letter-spacing:.025em;margin-bottom:1.2rem}
+    .section-lead{font-size:1rem;font-weight:300;color:var(--grey);line-height:1.8;max-width:560px}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--pad);background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+    .logo-text{font-family:var(--font-display);font-size:1.55rem;letter-spacing:.1em;color:var(--white)}
+    .nav-links{display:flex;gap:2.2rem;list-style:none}
+    .nav-links a{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color .2s}
+    .nav-links a:hover{color:var(--green)}
+    .nav-cta{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#ffffff;background:var(--green);padding:.55rem 1.2rem;text-decoration:none;transition:background .2s}
+    .nav-cta:hover{background:#6cbb00}
+
+    /* HERO */
+    .hero{
+      min-height:100vh;display:grid;grid-template-columns:1fr 1.15fr;
+      align-items:center;gap:3rem;
+      padding:7rem var(--pad) 4rem;position:relative;overflow:hidden
+    }
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 72% 45%,rgba(95,168,0,.06) 0%,transparent 70%);pointer-events:none}
+    .hero-left{position:relative;z-index:1}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);border:1px solid rgba(95,168,0,.3);padding:.3rem .7rem;margin-bottom:2rem;opacity:0;animation:up .7s .15s forwards}
+    .hero-eyebrow::before{content:'';width:5px;height:5px;background:var(--green);border-radius:50%}
+    .hero-h1{font-family:var(--font-display);font-size:clamp(3.6rem,6vw,6.4rem);line-height:.93;letter-spacing:.02em;margin-bottom:1.8rem;opacity:0;animation:up .7s .28s forwards}
+    .hero-h1 em{font-style:normal;color:var(--green)}
+    .hero-sub{font-size:1.02rem;font-weight:300;color:var(--grey);line-height:1.8;max-width:460px;margin-bottom:2.5rem;opacity:0;animation:up .7s .42s forwards}
+    .hero-sub strong{color:var(--white);font-weight:400}
+    .hero-buttons{display:flex;gap:.9rem;flex-wrap:wrap;opacity:0;animation:up .7s .55s forwards}
+    .btn{display:inline-block;text-decoration:none;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 1.6rem;transition:all .2s}
+    .btn-fill{background:var(--green);color:#ffffff;border:none;cursor:pointer}
+    .btn-fill:hover{background:#6cbb00;transform:translateY(-1px)}
+    .btn-outline{border:1px solid #aaa;color:var(--white);background:transparent}
+    .btn-outline:hover{border-color:var(--green);color:var(--green)}
+    .hero-right{display:flex;align-items:center;justify-content:center;opacity:0;animation:fade 1s .5s forwards}
+    .hero-diagram{width:100%;height:auto;display:block}
+
+    /* PLATFORM BAND */
+    .platform-band{background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4.5rem var(--pad)}
+    .platform-band-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+    .platform-band h2{font-family:var(--font-display);font-size:clamp(2rem,3vw,2.8rem);line-height:1;letter-spacing:.03em}
+    .platform-band h2 em{font-style:normal;color:var(--green)}
+    .problem-cards{display:flex;flex-direction:column;gap:1.25rem}
+    .problem-card{background:var(--panel);border:1px solid var(--border);padding:1.4rem 1.6rem}
+    .problem-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.4rem}
+    .problem-title{font-size:.95rem;font-weight:500;margin-bottom:.3rem}
+    .problem-text{font-size:.875rem;font-weight:300;color:var(--grey);line-height:1.7}
+    .problem-text strong{color:var(--white);font-weight:400}
+
+    /* TECHNOLOGY */
+    .how{padding:6rem var(--pad);max-width:var(--max);margin:0 auto}
+    .process-flow{display:flex;align-items:stretch;gap:0;margin:4rem 0 3.5rem;position:relative}
+    .process-step{flex:1;background:var(--panel);border:1px solid var(--border);padding:2rem 1.5rem;position:relative;transition:border-color .2s}
+    .process-step:hover{border-color:rgba(126,211,33,.3)}
+    .process-step:not(:last-child)::after{content:'';position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:13px solid var(--border);z-index:2}
+    .process-step:not(:last-child)::before{content:'';position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:12px solid var(--panel);z-index:3}
+    .ps-num{font-family:var(--font-mono);font-size:.62rem;color:var(--green);letter-spacing:.1em;margin-bottom:.75rem}
+    .ps-title{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.04em;margin-bottom:.5rem;line-height:1}
+    .ps-text{font-size:.82rem;font-weight:300;color:var(--grey);line-height:1.65}
+    .outcomes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:0}
+    .outcome{background:var(--off-black);padding:2rem;display:flex;gap:1.25rem;align-items:flex-start}
+    .outcome-dot{width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:.35rem}
+    .outcome-dot.dim{background:var(--border)}
+    .outcome-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:.3rem}
+    .outcome-label.dim{color:var(--grey)}
+    .outcome-title{font-size:.95rem;font-weight:500;margin-bottom:.3rem}
+    .outcome-text{font-size:.82rem;font-weight:300;color:var(--grey);line-height:1.65}
+    .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem;align-items:start}
+    .info-box{background:var(--panel);border:1px solid var(--border);padding:1.75rem}
+    .info-box-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.6rem}
+    .info-box-title{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.04em;margin-bottom:.5rem}
+    .info-box-text{font-size:.85rem;font-weight:300;color:var(--grey);line-height:1.7}
+    .info-box-text strong{color:var(--white);font-weight:400}
+    .accent-box{border-left:3px solid var(--green);background:var(--panel);padding:1.25rem 1.5rem}
+    .accent-box-text{font-size:.875rem;font-weight:300;color:var(--grey);line-height:1.75}
+    .accent-box-text strong{color:var(--white);font-weight:400}
+
+    /* PRODUCTS */
+    .products{background:var(--dark)}
+    .products-inner{max-width:var(--max);margin:0 auto;padding:6rem var(--pad)}
+    .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:4rem}
+    .product-card{background:var(--off-black);padding:3rem;display:flex;flex-direction:column}
+    .product-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:2rem}
+    .product-status{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.28rem .65rem;white-space:nowrap}
+    .status-live{color:var(--green);border:1px solid rgba(95,168,0,.4)}
+    .status-coming{color:var(--grey);border:1px solid var(--border)}
+    .product-name{font-family:var(--font-display);font-size:clamp(2rem,3vw,2.8rem);line-height:1;letter-spacing:.03em;margin-bottom:.4rem}
+    .product-name em{font-style:normal;color:var(--green)}
+    .product-subtitle{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-bottom:1.5rem}
+    .product-desc{font-size:.925rem;font-weight:300;color:var(--grey);line-height:1.8;margin-bottom:2rem;flex:1}
+    .product-desc strong{color:var(--white);font-weight:400}
+    .product-attrs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto}
+    .attr{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .65rem;border:1px solid var(--border);color:var(--grey)}
+    .attr.green{border-color:rgba(126,211,33,.3);color:var(--green)}
+
+    /* VALIDATION */
+    .validation{padding:6rem var(--pad);max-width:var(--max);margin:0 auto}
+    .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:4rem}
+    .val-card{background:var(--off-black);padding:2.5rem}
+    .val-icon{width:40px;height:40px;border:1px solid rgba(95,168,0,.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.65rem;color:var(--green);margin-bottom:1.5rem;letter-spacing:.05em}
+    .val-title{font-size:.95rem;font-weight:500;margin-bottom:.5rem}
+    .val-text{font-size:.875rem;font-weight:300;color:var(--grey);line-height:1.7}
+
+    /* TEAM */
+    .team{background:var(--dark)}
+    .team-inner{max-width:var(--max);margin:0 auto;padding:6rem var(--pad)}
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:4rem}
+    .team-card{background:var(--off-black);padding:2rem}
+    .team-initials{width:44px;height:44px;border-radius:50%;background:var(--panel);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;color:var(--green);margin-bottom:1.1rem;letter-spacing:.05em}
+    .team-name{font-size:.95rem;font-weight:500;margin-bottom:.15rem}
+    .team-role{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:.85rem}
+    .team-bio{font-size:.82rem;font-weight:300;color:var(--grey);line-height:1.65}
+
+    /* CONTACT */
+    .contact{padding:6rem var(--pad)}
+    .contact-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .contact-audiences{display:flex;flex-direction:column;gap:0;margin-top:2.5rem}
+    .audience{padding:1.2rem 0;border-bottom:1px solid var(--border);display:flex;gap:1rem;align-items:flex-start}
+    .audience:first-child{border-top:1px solid var(--border)}
+    .audience-dot{width:6px;height:6px;border-radius:50%;background:var(--green);margin-top:.5rem;flex-shrink:0}
+    .audience-label{font-size:.9rem;font-weight:400;margin-bottom:.15rem}
+    .audience-desc{font-size:.82rem;font-weight:300;color:var(--grey)}
+    .contact-form{display:flex;flex-direction:column;gap:1rem}
+    .field{display:flex;flex-direction:column;gap:.35rem}
+    .field label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+    .field input,.field textarea,.field select{background:var(--panel);border:1px solid var(--border);color:var(--white);font-family:var(--font-body);font-size:.9rem;font-weight:300;padding:.7rem 1rem;outline:none;transition:border-color .2s;resize:vertical}
+    .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green)}
+    .field textarea{min-height:110px}
+    .field select option{background:#fff}
+    #form-thanks{display:none;font-family:var(--font-mono);font-size:.72rem;color:var(--green);letter-spacing:.1em;margin-top:.5rem}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:1.75rem var(--pad);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+    .footer-logo{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.1em;color:var(--grey)}
+    .footer-note{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.07em;color:#999}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    @keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+    @keyframes fade{from{opacity:0}to{opacity:1}}
+
+    @media(max-width:900px){
+      .nav-links,.nav-cta{display:none}
+      .hero{grid-template-columns:1fr;padding-top:7rem}
+      .hero-right{display:none}
+      .platform-band-inner{grid-template-columns:1fr;gap:2rem}
+      .how{padding:4rem var(--pad)}
+      .process-flow{flex-direction:column}
+      .process-step:not(:last-child)::after,.process-step:not(:last-child)::before{display:none}
+      .how-grid{grid-template-columns:1fr;gap:3rem}
+      .products-grid,.outcomes{grid-template-columns:1fr}
+      .val-grid{grid-template-columns:1fr}
+      .team-grid{grid-template-columns:1fr 1fr}
+      .contact-inner{grid-template-columns:1fr;gap:3rem}
+    }
+    @media(max-width:560px){.team-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="8" cy="8" r="3" fill="#5fa800"/>
+      <circle cx="8" cy="16" r="3" fill="#5fa800"/>
+      <circle cx="8" cy="24" r="3" fill="#5fa800"/>
+      <circle cx="16" cy="12" r="3" fill="#5fa800" opacity="0.7"/>
+      <circle cx="16" cy="20" r="3" fill="#5fa800" opacity="0.7"/>
+      <circle cx="24" cy="8" r="3" fill="#5fa800" opacity="0.4"/>
+      <circle cx="24" cy="24" r="3" fill="#5fa800" opacity="0.4"/>
+      <line x1="8" y1="16" x2="24" y2="8" stroke="#5fa800" stroke-width="1.5" opacity="0.5"/>
+      <line x1="8" y1="16" x2="24" y2="24" stroke="#5fa800" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <span class="logo-text">KAIMARRA</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#technology">Technology</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Contact</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;opacity:0;animation:up .7s .15s forwards">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8"  r="3" fill="#5fa800"/>
+          <circle cx="8" cy="16" r="3" fill="#5fa800"/>
+          <circle cx="8" cy="24" r="3" fill="#5fa800"/>
+          <circle cx="16" cy="12" r="3" fill="#5fa800" opacity="0.7"/>
+          <circle cx="16" cy="20" r="3" fill="#5fa800" opacity="0.7"/>
+          <circle cx="24" cy="8"  r="3" fill="#5fa800" opacity="0.4"/>
+          <circle cx="24" cy="24" r="3" fill="#5fa800" opacity="0.4"/>
+          <line x1="8" y1="16" x2="24" y2="8"  stroke="#5fa800" stroke-width="1.5" opacity="0.5"/>
+          <line x1="8" y1="16" x2="24" y2="24" stroke="#5fa800" stroke-width="1.5" opacity="0.5"/>
+        </svg>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.6rem;letter-spacing:.12em;color:#111111;line-height:1">KAIMARRA</span>
+      </div>
+      <span style="display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#5fa800;border:1px solid rgba(95,168,0,.3);padding:.3rem .7rem;width:fit-content">
+        <span style="width:5px;height:5px;background:#5fa800;border-radius:50%;display:inline-block"></span>
+        US Patent 12,163,004 B2
+      </span>
+    </div>
+    <h1 class="hero-h1">Any Plastic.<br/><em>Any Filler.</em><br/>Any Market.</h1>
+    <p class="hero-sub">Kaimarra's patented chemistry unlocks <strong>extreme filler loading in any thermoplastic</strong> &mdash; producing composites that perform in the field, biodegrade on command, or hit structural targets no conventional plastic can reach. One platform. Any direction.</p>
+    <div class="hero-buttons">
+      <a href="#technology" class="btn btn-fill">How It Works</a>
+      <a href="#products" class="btn btn-outline">Our Products</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- DIAGRAM: inputs (left) → platform (center) → outputs (right) -->
+    <!-- viewBox is 3:2 ratio, designed to fill its column naturally -->
+    <svg class="hero-diagram" viewBox="0 0 720 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- ═══ LEFT: INPUTS (vertically aligned with right column) ═══ -->
+      <text x="96" y="54" text-anchor="middle" font-family="'DM Mono',monospace" font-size="10" fill="rgba(95,168,0,0.75)" letter-spacing="2">BASE POLYMERS</text>
+      <rect x="4" y="62" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+      <text x="96" y="87" text-anchor="middle" font-family="'DM Mono',monospace" font-size="11" fill="#777" letter-spacing="1">PP · PLA · PBS · ABS</text>
+      <rect x="4" y="108" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+      <text x="96" y="133" text-anchor="middle" font-family="'DM Mono',monospace" font-size="11" fill="#777" letter-spacing="1">PA · TPU · PCL · PHA</text>
+
+      <text x="96" y="174" text-anchor="middle" font-family="'DM Mono',monospace" font-size="10" fill="rgba(95,168,0,0.75)" letter-spacing="2">FILLERS &amp; ADDITIVES</text>
+      <rect x="4" y="184" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+      <text x="96" y="209" text-anchor="middle" font-family="'DM Mono',monospace" font-size="11" fill="#777" letter-spacing="1">Plant waste · Starch</text>
+      <rect x="4" y="230" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+      <text x="96" y="255" text-anchor="middle" font-family="'DM Mono',monospace" font-size="11" fill="#777" letter-spacing="1">Glass · Carbon fiber</text>
+      <rect x="4" y="276" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+      <text x="96" y="301" text-anchor="middle" font-family="'DM Mono',monospace" font-size="11" fill="#777" letter-spacing="1">Kevlar · Nano carbon</text>
+      <rect x="4" y="322" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+      <text x="96" y="347" text-anchor="middle" font-family="'DM Mono',monospace" font-size="11" fill="#777" letter-spacing="1">Metals · and more</text>
+
+      <!-- ARROWS: inputs → center (360, 244) -->
+      <line x1="188" y1="82"  x2="292" y2="232" stroke="rgba(95,168,0,0.2)" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <line x1="188" y1="128" x2="292" y2="238" stroke="rgba(95,168,0,0.18)" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <line x1="188" y1="204" x2="292" y2="242" stroke="rgba(95,168,0,0.2)" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <line x1="188" y1="250" x2="292" y2="245" stroke="rgba(95,168,0,0.25)" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <line x1="188" y1="296" x2="292" y2="248" stroke="rgba(95,168,0,0.18)" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <line x1="188" y1="342" x2="292" y2="252" stroke="rgba(95,168,0,0.12)" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+      <!-- ═══ CENTER: PLATFORM ═══ -->
+      <circle cx="360" cy="244" r="76" fill="rgba(95,168,0,0.04)" stroke="rgba(95,168,0,0.15)" stroke-width="1"/>
+      <circle cx="360" cy="244" r="58" fill="rgba(95,168,0,0.08)" stroke="rgba(95,168,0,0.4)" stroke-width="1.5"/>
+      <text x="360" y="237" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="19" fill="#5fa800" letter-spacing="3">KAIMARRA</text>
+      <text x="360" y="254" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="rgba(95,168,0,0.6)" letter-spacing="2">PLATFORM</text>
+
+      <!-- ARROWS: center → outputs -->
+      <line x1="418" y1="210" x2="532" y2="100" stroke="rgba(95,168,0,0.65)"  stroke-width="1.5"/>
+      <line x1="418" y1="236" x2="532" y2="244" stroke="rgba(95,168,0,0.3)" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <line x1="418" y1="264" x2="532" y2="388" stroke="rgba(95,168,0,0.2)" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+      <!-- ═══ RIGHT: OUTPUTS (same vertical span as left) ═══ -->
+
+      <!-- BioActive — IN PRODUCTION (y=62 to y=178) -->
+      <rect x="532" y="62"  width="184" height="116" rx="2" fill="rgba(95,168,0,0.08)" stroke="rgba(95,168,0,0.5)" stroke-width="1.5"/>
+      <circle cx="548" cy="80" r="5.5" fill="#5fa800"/>
+      <text x="562" y="84" font-family="'DM Mono',monospace" font-size="9" fill="rgba(95,168,0,0.9)" letter-spacing="1">IN PRODUCTION</text>
+      <text x="540" y="122" font-family="'Bebas Neue',sans-serif" font-size="28" fill="#5fa800" letter-spacing="2">BioActive™</text>
+      <text x="540" y="144" font-family="'DM Mono',monospace" font-size="10" fill="rgba(95,168,0,0.6)">Biodegradable composites</text>
+
+      <!-- Structura — COMING SOON (y=194 to y=310) -->
+      <rect x="532" y="194" width="184" height="116" rx="2" fill="#e0e0e0" stroke="#cecece" stroke-width="1.5" stroke-dasharray="6 3"/>
+      <text x="540" y="214" font-family="'DM Mono',monospace" font-size="9" fill="#555" letter-spacing="1">COMING SOON</text>
+      <text x="540" y="256" font-family="'Bebas Neue',sans-serif" font-size="28" fill="#585858" letter-spacing="2">Structura™</text>
+      <text x="540" y="278" font-family="'DM Mono',monospace" font-size="10" fill="#4a4a4a">Performance composites</text>
+
+      <!-- Future lines (y=326 to y=432) -->
+      <rect x="532" y="326" width="184" height="106" rx="2" fill="#e0e0e0" stroke="#ccc" stroke-width="1" stroke-dasharray="3 6"/>
+      <text x="540" y="346" font-family="'DM Mono',monospace" font-size="9" fill="#444" letter-spacing="1">FUTURE LINES</text>
+      <text x="540" y="384" font-family="'Bebas Neue',sans-serif" font-size="26" fill="#404040" letter-spacing="2">ElectraBond™</text>
+      <text x="540" y="406" font-family="'DM Mono',monospace" font-size="9.5" fill="#3a3a3a">ThermaShield™ · and more</text>
+
+    </svg>
+  </div>
+</div>
+
+<!-- PLATFORM BAND — three problems -->
+<div class="platform-band">
+  <div class="platform-band-inner">
+    <div class="reveal">
+      <h2>The biodegradable plastics market has <em>three unsolved problems.</em> Kaimarra solves all of them.</h2>
+    </div>
+    <div class="problem-cards">
+      <div class="problem-card reveal">
+        <div class="problem-label">Problem 1 — Economics</div>
+        <div class="problem-title">Too expensive to scale</div>
+        <div class="problem-text">Biodegradable polymers have long depended on subsidies or niche markets to be cost-competitive. By enabling high bioavailable filler loading, <strong>Kaimarra drives material cost down the scale curve toward commodity plastics</strong> — and under EPR pressure, reaches cost parity with conventional options.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-label">Problem 2 — Performance</div>
+        <div class="problem-title">Doesn't hold up in real use</div>
+        <div class="problem-text">Most biodegradable options either break down too fast and unpredictably, or require so much structural polymer that they don't biodegrade in home composting conditions at all. <strong>Kaimarra's compatibilization process enables high loading of bioavailable fillers without mechanical collapse</strong> — strength where it matters, degradation where it should happen.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-label">Problem 3 — Credibility</div>
+        <div class="problem-title">Claims that don't hold up</div>
+        <div class="problem-text">Most "biodegradable" products don't biodegrade in practice. PLA needs industrial composting. Many filler-loaded alternatives fragment into microplastics. <strong>Kaimarra's biodegradation is independently validated</strong> to ISO 14855 — full carbon mineralization, no microplastic residue, on a controlled, predictable timeline.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TECHNOLOGY -->
+<div id="technology">
+  <div class="how">
+    <span class="tag reveal">How It Works</span>
+    <h2 class="section-title reveal">Raw materials in.<br/>Better materials out.</h2>
+    <p class="section-lead reveal">Kaimarra's process is straightforward: we take conventional plastics and the right fillers, run them through our proprietary reactive blend process, and produce pellets that drop straight into your existing equipment.</p>
+
+    <div class="process-flow reveal">
+      <div class="process-step">
+        <div class="ps-num">01</div>
+        <div class="ps-title">Raw Materials</div>
+        <div class="ps-text">Standard thermoplastic resins combined with carefully selected fillers — bioavailable materials for biodegradability, or glass, carbon fiber, and other performance fillers for structural applications.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">02</div>
+        <div class="ps-title">Reactive Blend Process</div>
+        <div class="ps-text">Our patented compatibilization technology bonds filler directly into the polymer matrix — enabling loading levels that would cause conventional composites to fail, while preserving mechanical performance.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">03</div>
+        <div class="ps-title">Pellets</div>
+        <div class="ps-text">The output is standard thermoplastic pellets. No exotic equipment, no special handling. They feed directly into injection molding, film extrusion, and thermoforming lines.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">04</div>
+        <div class="ps-title">Finished Products</div>
+        <div class="ps-text">Manufacturers convert Kaimarra pellets on their existing equipment — with no tooling changes, no capital expenditure, and no cycle-time penalties.</div>
+      </div>
+    </div>
+
+    <div class="outcomes reveal">
+      <div class="outcome">
+        <div class="outcome-dot"></div>
+        <div>
+          <div class="outcome-label">Now &mdash; BioActive&trade;</div>
+          <div class="outcome-title">Biodegradable &amp; Home Compostable Products</div>
+          <div class="outcome-text">High loading of bioavailable fillers produces composites that fully biodegrade in real-world conditions — verified to ISO 14855, no microplastic residue, on a predictable timeline.</div>
+        </div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-dot dim"></div>
+        <div>
+          <div class="outcome-label dim">Coming &mdash; Structura&trade;</div>
+          <div class="outcome-title" style="color:var(--grey)">High-Performance Composites</div>
+          <div class="outcome-text">High loading of glass or carbon fiber produces structural materials that far exceed the strength and stiffness of standard plastics, at lower filler cost.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-grid">
+      <div>
+        <div class="info-box reveal">
+          <div class="info-box-label">Issued Patent</div>
+          <div class="info-box-title">US 12,163,004 B2</div>
+          <div class="info-box-text">Granted December 2024. <strong>29 claims</strong> covering the compatibilization platform across polymer families and filler classes. Broad coverage, 100% assigned to Kaimarra.</div>
+        </div>
+        <div class="info-box reveal" style="margin-top:1.5rem">
+          <div class="info-box-label">Drop-In Compatible</div>
+          <div class="info-box-title">No New Equipment</div>
+          <div class="info-box-text">Kaimarra pellets run on standard injection molding, film extrusion, and thermoforming lines. <strong>No tooling changes, no cycle-time penalties, no capital expenditure.</strong></div>
+        </div>
+      </div>
+      <div class="accent-box reveal" style="align-self:start">
+        <div class="accent-box-text" style="margin-bottom:1rem;font-size:.95rem;font-weight:400;color:var(--white)">Scientific Foundation</div>
+        <div class="accent-box-text">The core chemistry was developed at the <strong>Warner Babcock Institute for Green Chemistry</strong>, co-founded by <strong>Dr. John Warner</strong> &mdash; recipient of the 2014 Perkin Medal, the highest honor in American Industrial Chemistry, and one of the founders of the field of Green Chemistry.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products" id="products"><div class="products-inner">
+  <span class="tag reveal">Product Lines</span>
+  <h2 class="section-title reveal">One platform.<br/>Any direction.</h2>
+  <p class="section-lead reveal">The filler determines the outcome. The same core chemistry — and the same equipment — powers all of them.</p>
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <div class="product-card-header">
+        <div>
+          <div class="product-name">Bio<em>Active&trade;</em></div>
+          <div class="product-subtitle">Biodegradable Composites</div>
+        </div>
+        <span class="product-status status-live">&bull; In Production</span>
+      </div>
+      <p class="product-desc">By loading conventional thermoplastics with <strong>high levels of bioavailable fillers</strong>, Kaimarra produces composites that biodegrade fully in real-world conditions — without the usual tradeoff of losing mechanical strength.<br/><br/>The result is a material that performs like plastic during its useful life, then biodegrades on a controlled, verifiable timeline. Our first commercial product is a biodegradable horticulture pot — validated on high-volume commercial injection molding lines, meeting real production requirements. Adjacent applications including propagation trays and agricultural mulch films are next.<br/><br/>As Extended Producer Responsibility (EPR) laws increase the cost of conventional plastics, BioActive materials reach cost parity without relying on subsidies or niche markets.</p>
+      <div class="product-attrs">
+        <span class="attr green">ISO 14855 Validated</span>
+        <span class="attr green">Commercially Validated</span>
+        <span class="attr">No Microplastic Residue</span>
+        <span class="attr">EPR Compliant</span>
+        <span class="attr">Drop-In Compatible</span>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-card-header">
+        <div>
+          <div class="product-name" style="color:var(--grey)">Structura&trade;</div>
+          <div class="product-subtitle">Performance Composites</div>
+        </div>
+        <span class="product-status status-coming">Coming Soon</span>
+      </div>
+      <p class="product-desc">The same high-loading chemistry that enables biodegradation also unlocks a path to <strong>dramatically stronger structural composites</strong>. By loading thermoplastics with high concentrations of glass fiber, carbon fiber, Kevlar, or other performance fillers, Kaimarra produces materials with mechanical properties that far exceed standard plastics.<br/><br/>Target applications include automotive components, electronics substrates, and anywhere high strength-to-weight performance matters.<br/><br/>This line is in active development. If you're a manufacturer or partner working in these spaces, we'd like to hear from you.</p>
+      <div class="product-attrs">
+        <span class="attr">Glass &amp; Carbon Fiber</span>
+        <span class="attr">Kevlar Loading</span>
+        <span class="attr">Automotive</span>
+        <span class="attr">Electronics</span>
+        <span class="attr">In Development</span>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- VALIDATION -->
+<div class="validation">
+  <span class="tag reveal">Credibility</span>
+  <h2 class="section-title reveal">Validated at every layer</h2>
+  <p class="section-lead reveal">From the chemistry to the field, the platform has been independently tested and commercially proven.</p>
+  <div class="val-grid">
+    <div class="val-card reveal">
+      <div class="val-icon">IP</div>
+      <div class="val-title">Issued Platform Patent</div>
+      <div class="val-text">US Patent 12,163,004 B2, granted December 2024. 29 claims covering the core compatibilization mechanism across polymer and filler systems — not tied to a single formulation or application.</div>
+    </div>
+    <div class="val-card reveal">
+      <div class="val-icon">ISO</div>
+      <div class="val-title">Third-Party Lab Validation</div>
+      <div class="val-text">Biodegradation independently validated to ISO 14855 by a certified third-party laboratory. Full carbon mineralization confirmed — no fragmentation into persistent microplastics.</div>
+    </div>
+    <div class="val-card reveal">
+      <div class="val-icon">MFG</div>
+      <div class="val-title">Commercial Validation</div>
+      <div class="val-text">BioActive materials validated on high-volume commercial injection molding lines at real part thickness and production speeds — with no equipment modifications. Binding commercial agreement in place with an industry-leading horticulture customer.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="team" id="team"><div class="team-inner">
+  <span class="tag reveal">Leadership</span>
+  <h2 class="section-title reveal">Experienced operators in<br/>materials commercialization</h2>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-initials">BM</div>
+      <div class="team-name">Bates Marshall</div>
+      <div class="team-role">CEO</div>
+      <div class="team-bio">Built and scaled materials platforms from lab to commercial programs. Leads global commercialization, positioning, and enterprise deal closing at Kaimarra.</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-initials">CL</div>
+      <div class="team-name">Chris Livesey</div>
+      <div class="team-role">CTO</div>
+      <div class="team-bio">Co-inventor of the platform. Senior chemist background at ExxonMobil, Solvay, and ICP. Owns the formulation roadmap and validation — from science to spec-controlled pellets.</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-initials">AH</div>
+      <div class="team-name">Alex Hsu</div>
+      <div class="team-role">VP, Manufacturing</div>
+      <div class="team-bio">Co-inventor of the platform. Polymer process and development engineering at Polymics. Owns toll manufacturing, QC, and production readiness at scale.</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-initials">JB</div>
+      <div class="team-name">Jim Babcock</div>
+      <div class="team-role">Chairman</div>
+      <div class="team-bio">Founder of Cthulhu Ventures. Prior co-founder, CEO, and Chairman of Babcock &amp; Brown, a publicly traded global investment-banking and funds-management firm.</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-initials">CH</div>
+      <div class="team-name">Chris Hill</div>
+      <div class="team-role">Board Director / Acting CFO</div>
+      <div class="team-bio">CFO of Cthulhu Ventures. Has advised multiple portfolio companies from pre-seed to Series C across materials and deep-tech sectors.</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-initials">JW</div>
+      <div class="team-name">Dr. John Warner</div>
+      <div class="team-role">Scientific Advisor</div>
+      <div class="team-bio">Recipient of the 2014 Perkin Medal — the highest honor in American Industrial Chemistry. Co-inventor of the platform chemistry. One of the founders of the field of Green Chemistry.</div>
+    </div>
+  </div>
+</div></div>
+
+<!-- CONTACT -->
+<div class="contact" id="contact"><div class="contact-inner">
+  <div>
+    <span class="tag reveal">Get In Touch</span>
+    <h2 class="section-title reveal">Let's Talk</h2>
+    <p class="section-lead reveal">We work with manufacturers, investors, and technology partners across multiple industries.</p>
+    <div class="contact-audiences reveal">
+      <div class="audience">
+        <div class="audience-dot"></div>
+        <div>
+          <div class="audience-label">Manufacturers</div>
+          <div class="audience-desc">Looking to solve EPR compliance, replace conventional plastics, or develop high-performance composites on your existing lines.</div>
+        </div>
+      </div>
+      <div class="audience">
+        <div class="audience-dot"></div>
+        <div>
+          <div class="audience-label">Investors</div>
+          <div class="audience-desc">Interested in a platform-level materials company with a granted patent, commercial validation, and a multi-market roadmap.</div>
+        </div>
+      </div>
+      <div class="audience">
+        <div class="audience-dot"></div>
+        <div>
+          <div class="audience-label">Partners &amp; Press</div>
+          <div class="audience-desc">Research collaborations, formulation partnerships, media inquiries, or anything else.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="contact-form reveal" onsubmit="handleForm(event)">
+    <div class="field"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+    <div class="field"><label>Company</label><input type="text" placeholder="Your company" /></div>
+    <div class="field"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+    <div class="field"><label>I am a...</label>
+      <select>
+        <option value="">Select one</option>
+        <option>Manufacturer / Customer</option>
+        <option>Investor</option>
+        <option>Formulation Partner</option>
+        <option>Press / Media</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="field"><label>Message</label><textarea placeholder="Tell us what you're working on or what you'd like to know."></textarea></div>
+    <button type="submit" class="btn btn-fill">Send Message</button>
+    <div id="form-thanks">&#10003; Message received. We'll be in touch shortly.</div>
+  </form>
+</div></div>
+
+<footer>
+  <div class="footer-logo">KAIMARRA</div>
+  <div class="footer-note">US Patent 12,163,004 B2 &nbsp;&middot;&nbsp; &copy; 2025 Kaimarra &nbsp;&middot;&nbsp; All rights reserved</div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((el, i) => {
+      if (el.isIntersecting) {
+        setTimeout(() => el.target.classList.add('in'), i * 55);
+        io.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => io.observe(el));
+  function handleForm(e) {
+    e.preventDefault();
+    document.getElementById('form-thanks').style.display = 'block';
+    e.target.reset();
+  }
+</script>
+</body>
+</html>
