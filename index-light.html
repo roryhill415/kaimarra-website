@@ -126,6 +126,7 @@
     .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:4rem}
     .team-card{background:var(--off-black);padding:2rem}
     .team-initials{width:44px;height:44px;border-radius:50%;background:var(--panel);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;color:var(--green);margin-bottom:1.1rem;letter-spacing:.05em}
+    .team-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top center;margin-bottom:1.1rem;border:2px solid var(--border);display:block}
     .team-name{font-size:.95rem;font-weight:500;margin-bottom:.15rem}
     .team-role{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:.85rem}
     .team-bio{font-size:.82rem;font-weight:300;color:var(--grey);line-height:1.65}
@@ -169,7 +170,7 @@
       .process-flow{flex-direction:column}
       .process-step:not(:last-child)::after,.process-step:not(:last-child)::before{display:none}
       .how-grid{grid-template-columns:1fr;gap:3rem}
-      .products-grid,.outcomes{grid-template-columns:1fr}
+      .products-grid,.outcomes,.tech-visuals{grid-template-columns:1fr}
       .val-grid{grid-template-columns:1fr}
       .team-grid{grid-template-columns:1fr 1fr}
       .contact-inner{grid-template-columns:1fr;gap:3rem}
@@ -259,68 +260,7 @@
     </div>
   </div>
   <div class="hero-right">
-    <!-- DIAGRAM: inputs (left) → platform (center) → outputs (right) -->
-    <!-- viewBox is 3:2 ratio, designed to fill its column naturally -->
-    <svg class="hero-diagram" viewBox="0 0 720 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-      <!-- ═══ LEFT: INPUTS (vertically aligned with right column) ═══ -->
-      <text x="96" y="54" text-anchor="middle" font-family="Arial" font-size="10" fill="rgba(95,168,0,0.75)" letter-spacing="2">BASE POLYMERS</text>
-      <rect x="4" y="62" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
-      <text x="96" y="87" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">PP · PLA · PBS · ABS</text>
-      <rect x="4" y="108" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
-      <text x="96" y="133" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">PA · TPU · PCL · PHA</text>
-
-      <text x="96" y="174" text-anchor="middle" font-family="Arial" font-size="10" fill="rgba(95,168,0,0.75)" letter-spacing="2">FILLERS &amp; ADDITIVES</text>
-      <rect x="4" y="184" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
-      <text x="96" y="209" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">Plant waste · Starch</text>
-      <rect x="4" y="230" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
-      <text x="96" y="255" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">Glass · Carbon fiber</text>
-      <rect x="4" y="276" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
-      <text x="96" y="301" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">Kevlar · Nano carbon</text>
-      <rect x="4" y="322" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
-      <text x="96" y="347" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">Metals · and more</text>
-
-      <!-- ARROWS: inputs → center (360, 244) -->
-      <line x1="188" y1="82"  x2="292" y2="232" stroke="rgba(95,168,0,0.2)" stroke-width="1.5" stroke-dasharray="5 3"/>
-      <line x1="188" y1="128" x2="292" y2="238" stroke="rgba(95,168,0,0.18)" stroke-width="1.5" stroke-dasharray="5 3"/>
-      <line x1="188" y1="204" x2="292" y2="242" stroke="rgba(95,168,0,0.2)" stroke-width="1.5" stroke-dasharray="5 3"/>
-      <line x1="188" y1="250" x2="292" y2="245" stroke="rgba(95,168,0,0.25)" stroke-width="1.5" stroke-dasharray="5 3"/>
-      <line x1="188" y1="296" x2="292" y2="248" stroke="rgba(95,168,0,0.18)" stroke-width="1.5" stroke-dasharray="5 3"/>
-      <line x1="188" y1="342" x2="292" y2="252" stroke="rgba(95,168,0,0.12)" stroke-width="1.5" stroke-dasharray="5 3"/>
-
-      <!-- ═══ CENTER: PLATFORM ═══ -->
-      <circle cx="360" cy="244" r="76" fill="rgba(95,168,0,0.04)" stroke="rgba(95,168,0,0.15)" stroke-width="1"/>
-      <circle cx="360" cy="244" r="58" fill="rgba(95,168,0,0.08)" stroke="rgba(95,168,0,0.4)" stroke-width="1.5"/>
-      <text x="360" y="237" text-anchor="middle" font-family="'Arial Black',Arial" font-size="15" fill="#5fa800" letter-spacing="2">KAIMARRA</text>
-      <text x="360" y="254" text-anchor="middle" font-family="Arial" font-size="9" fill="rgba(95,168,0,0.6)" letter-spacing="2">PLATFORM</text>
-
-      <!-- ARROWS: center → outputs -->
-      <line x1="418" y1="210" x2="532" y2="100" stroke="rgba(95,168,0,0.65)"  stroke-width="1.5"/>
-      <line x1="418" y1="236" x2="532" y2="244" stroke="rgba(95,168,0,0.3)" stroke-width="1.5" stroke-dasharray="5 3"/>
-      <line x1="418" y1="264" x2="532" y2="388" stroke="rgba(95,168,0,0.2)" stroke-width="1.5" stroke-dasharray="5 3"/>
-
-      <!-- ═══ RIGHT: OUTPUTS (same vertical span as left) ═══ -->
-
-      <!-- BioActive — IN PRODUCTION (y=62 to y=178) -->
-      <rect x="532" y="62"  width="184" height="116" rx="2" fill="rgba(95,168,0,0.08)" stroke="rgba(95,168,0,0.5)" stroke-width="1.5"/>
-      <circle cx="548" cy="80" r="5.5" fill="#5fa800"/>
-      <text x="562" y="84" font-family="Arial" font-size="9" fill="rgba(95,168,0,0.9)" letter-spacing="1">IN PRODUCTION</text>
-      <text x="540" y="118" font-family="'Arial Black',Arial" font-size="19" fill="#5fa800" letter-spacing="1">BioActive™</text>
-      <text x="540" y="140" font-family="Arial" font-size="10" fill="rgba(95,168,0,0.6)">Biodegradable composites</text>
-
-      <!-- Structura — COMING SOON (y=194 to y=310) -->
-      <rect x="532" y="194" width="184" height="116" rx="2" fill="#e0e0e0" stroke="#cecece" stroke-width="1.5" stroke-dasharray="6 3"/>
-      <text x="540" y="214" font-family="Arial" font-size="9" fill="#555" letter-spacing="1">COMING SOON</text>
-      <text x="540" y="250" font-family="'Arial Black',Arial" font-size="19" fill="#585858" letter-spacing="1">Structura™</text>
-      <text x="540" y="272" font-family="Arial" font-size="10" fill="#4a4a4a">Performance composites</text>
-
-      <!-- Future lines (y=326 to y=432) -->
-      <rect x="532" y="326" width="184" height="106" rx="2" fill="#e0e0e0" stroke="#ccc" stroke-width="1" stroke-dasharray="3 6"/>
-      <text x="540" y="346" font-family="Arial" font-size="9" fill="#444" letter-spacing="1">FUTURE LINES</text>
-      <text x="540" y="378" font-family="'Arial Black',Arial" font-size="18" fill="#404040" letter-spacing="1">ElectraBond™</text>
-      <text x="540" y="400" font-family="Arial" font-size="9.5" fill="#3a3a3a">ThermaShield™ · and more</text>
-
-    </svg>
+    <img src="photos/platform-diagram.png" alt="Kaimarra platform: pellets to end products" class="hero-diagram" style="object-fit:contain;max-height:520px" />
   </div>
 </div>
 
@@ -399,6 +339,55 @@
       </div>
     </div>
 
+    <!-- TECHNOLOGY VISUALS: photo + platform diagram -->
+    <div class="tech-visuals reveal" style="display:grid;grid-template-columns:1.4fr 1fr;gap:1px;background:var(--border);margin-top:1px">
+      <img src="photos/manufacturing-extrusion.png" alt="Kaimarra extrusion manufacturing line" style="width:100%;height:380px;object-fit:cover;object-position:top left;display:block" />
+      <div style="background:var(--off-black);display:flex;align-items:center;justify-content:center;padding:2rem">
+        <svg viewBox="0 0 720 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+          <text x="96" y="54" text-anchor="middle" font-family="Arial" font-size="10" fill="rgba(95,168,0,0.75)" letter-spacing="2">BASE POLYMERS</text>
+          <rect x="4" y="62" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+          <text x="96" y="87" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">PP · PLA · PBS · ABS</text>
+          <rect x="4" y="108" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+          <text x="96" y="133" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">PA · TPU · PCL · PHA</text>
+          <text x="96" y="174" text-anchor="middle" font-family="Arial" font-size="10" fill="rgba(95,168,0,0.75)" letter-spacing="2">FILLERS &amp; ADDITIVES</text>
+          <rect x="4" y="184" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+          <text x="96" y="209" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">Plant waste · Starch</text>
+          <rect x="4" y="230" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+          <text x="96" y="255" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">Glass · Carbon fiber</text>
+          <rect x="4" y="276" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+          <text x="96" y="301" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">Kevlar · Nano carbon</text>
+          <rect x="4" y="322" width="184" height="40" rx="2" fill="#e0e0e0" stroke="#d8d8d8"/>
+          <text x="96" y="347" text-anchor="middle" font-family="Arial" font-size="11" fill="#777" letter-spacing="1">Metals · and more</text>
+          <line x1="188" y1="82"  x2="292" y2="232" stroke="rgba(95,168,0,0.2)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <line x1="188" y1="128" x2="292" y2="238" stroke="rgba(95,168,0,0.18)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <line x1="188" y1="204" x2="292" y2="242" stroke="rgba(95,168,0,0.2)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <line x1="188" y1="250" x2="292" y2="245" stroke="rgba(95,168,0,0.25)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <line x1="188" y1="296" x2="292" y2="248" stroke="rgba(95,168,0,0.18)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <line x1="188" y1="342" x2="292" y2="252" stroke="rgba(95,168,0,0.12)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <circle cx="360" cy="244" r="76" fill="rgba(95,168,0,0.04)" stroke="rgba(95,168,0,0.15)" stroke-width="1"/>
+          <circle cx="360" cy="244" r="58" fill="rgba(95,168,0,0.08)" stroke="rgba(95,168,0,0.4)" stroke-width="1.5"/>
+          <text x="360" y="237" text-anchor="middle" font-family="'Arial Black',Arial" font-size="15" fill="#5fa800" letter-spacing="2">KAIMARRA</text>
+          <text x="360" y="254" text-anchor="middle" font-family="Arial" font-size="9" fill="rgba(95,168,0,0.6)" letter-spacing="2">PLATFORM</text>
+          <line x1="418" y1="210" x2="532" y2="100" stroke="rgba(95,168,0,0.65)" stroke-width="1.5"/>
+          <line x1="418" y1="236" x2="532" y2="244" stroke="rgba(95,168,0,0.3)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <line x1="418" y1="264" x2="532" y2="388" stroke="rgba(95,168,0,0.2)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <rect x="532" y="62"  width="184" height="116" rx="2" fill="rgba(95,168,0,0.08)" stroke="rgba(95,168,0,0.5)" stroke-width="1.5"/>
+          <circle cx="548" cy="80" r="5.5" fill="#5fa800"/>
+          <text x="562" y="84" font-family="Arial" font-size="9" fill="rgba(95,168,0,0.9)" letter-spacing="1">IN PRODUCTION</text>
+          <text x="540" y="118" font-family="'Arial Black',Arial" font-size="19" fill="#5fa800" letter-spacing="1">BioActive™</text>
+          <text x="540" y="140" font-family="Arial" font-size="10" fill="rgba(95,168,0,0.6)">Biodegradable composites</text>
+          <rect x="532" y="194" width="184" height="116" rx="2" fill="#e0e0e0" stroke="#cecece" stroke-width="1.5" stroke-dasharray="6 3"/>
+          <text x="540" y="214" font-family="Arial" font-size="9" fill="#555" letter-spacing="1">COMING SOON</text>
+          <text x="540" y="250" font-family="'Arial Black',Arial" font-size="19" fill="#585858" letter-spacing="1">Structura™</text>
+          <text x="540" y="272" font-family="Arial" font-size="10" fill="#4a4a4a">Performance composites</text>
+          <rect x="532" y="326" width="184" height="106" rx="2" fill="#e0e0e0" stroke="#ccc" stroke-width="1" stroke-dasharray="3 6"/>
+          <text x="540" y="346" font-family="Arial" font-size="9" fill="#444" letter-spacing="1">FUTURE LINES</text>
+          <text x="540" y="378" font-family="'Arial Black',Arial" font-size="18" fill="#404040" letter-spacing="1">ElectraBond™</text>
+          <text x="540" y="400" font-family="Arial" font-size="9.5" fill="#3a3a3a">ThermaShield™ · and more</text>
+        </svg>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -409,6 +398,7 @@
   <p class="section-lead reveal">The filler determines the outcome. The same core chemistry — and the same equipment — powers all of them.</p>
   <div class="products-grid">
     <div class="product-card reveal">
+      <img src="photos/biodegradation-comparison.png" alt="Biodegradation comparison over time" style="width:calc(100% + 6rem);margin:-3rem -3rem 2rem -3rem;height:220px;object-fit:cover;object-position:top left;display:block" />
       <div class="product-card-header">
         <div>
           <div class="product-name">Bio<em>Active&trade;</em></div>
@@ -426,6 +416,7 @@
       </div>
     </div>
     <div class="product-card reveal">
+      <img src="photos/manufacturing-molding.png" alt="High-volume injection molding line" style="width:calc(100% + 6rem);margin:-3rem -3rem 2rem -3rem;height:220px;object-fit:cover;object-position:top left;display:block" />
       <div class="product-card-header">
         <div>
           <div class="product-name" style="color:var(--grey)">Structura&trade;</div>
@@ -475,37 +466,37 @@
   <h2 class="section-title reveal">Experienced Operators in<br/>Materials Commercialization</h2>
   <div class="team-grid">
     <div class="team-card reveal">
-      <div class="team-initials">BM</div>
+      <img src="photos/team-bates-marshall.jpg" alt="Bates Marshall" class="team-photo" />
       <div class="team-name">Bates Marshall</div>
       <div class="team-role">CEO</div>
       <div class="team-bio">Built and scaled materials platforms from lab to commercial programs. Leads global commercialization, positioning, and enterprise deal closing at Kaimarra.</div>
     </div>
     <div class="team-card reveal">
-      <div class="team-initials">CL</div>
+      <img src="photos/team-chris-livesey.jpg" alt="Chris Livesey" class="team-photo" />
       <div class="team-name">Chris Livesey</div>
       <div class="team-role">CTO</div>
       <div class="team-bio">Co-inventor of the platform. Senior chemist background at ExxonMobil, Solvay, and ICP. Owns the formulation roadmap and validation — from science to spec-controlled pellets.</div>
     </div>
     <div class="team-card reveal">
-      <div class="team-initials">AH</div>
+      <img src="photos/team-alex-hsu.jpg" alt="Alex Hsu" class="team-photo" />
       <div class="team-name">Alex Hsu</div>
       <div class="team-role">VP, Manufacturing</div>
       <div class="team-bio">Co-inventor of the platform. Polymer process and development engineering at Polymics. Owns toll manufacturing, QC, and production readiness at scale.</div>
     </div>
     <div class="team-card reveal">
-      <div class="team-initials">JB</div>
+      <img src="photos/team-jim-babcock.jpg" alt="Jim Babcock" class="team-photo" />
       <div class="team-name">Jim Babcock</div>
       <div class="team-role">Chairman</div>
       <div class="team-bio">Founder of Cthulhu Ventures. Prior co-founder, CEO, and Chairman of Babcock &amp; Brown, a publicly traded global investment-banking and funds-management firm.</div>
     </div>
     <div class="team-card reveal">
-      <div class="team-initials">CH</div>
+      <img src="photos/team-chris-hill.jpg" alt="Chris Hill" class="team-photo" />
       <div class="team-name">Chris Hill</div>
       <div class="team-role">Board Director / Acting CFO</div>
       <div class="team-bio">CFO of Cthulhu Ventures. Has advised multiple portfolio companies from pre-seed to Series C across materials and deep-tech sectors.</div>
     </div>
     <div class="team-card reveal">
-      <div class="team-initials">JW</div>
+      <img src="photos/team-john-warner.jpg" alt="Dr. John Warner" class="team-photo" />
       <div class="team-name">Dr. John Warner</div>
       <div class="team-role">Scientific Advisor</div>
       <div class="team-bio">Recipient of the 2014 Perkin Medal — the highest honor in American Industrial Chemistry. Co-inventor of the platform chemistry. One of the founders of the field of Green Chemistry.</div>
