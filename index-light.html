@@ -292,7 +292,7 @@
 </div>
 
 <!-- TECHNOLOGY -->
-<div id="technology" style="background-image:url('photos/manufacturing-molding.png');background-size:cover;background-position:center;position:relative">
+<div id="technology">
   <div style="position:absolute;inset:0;background:rgba(247,247,247,0.94)"></div>
   <div class="how" style="position:relative;z-index:1">
     <span class="tag reveal">How It Works</span>
@@ -401,7 +401,9 @@
 </div>
 
 <!-- PRODUCTS -->
-<div class="products" id="products"><div class="products-inner">
+<div class="products" id="products" style="background-image:url('photos/drone.jpg');background-size:cover;background-position:center;position:relative">
+  <div style="position:absolute;inset:0;background:rgba(240,240,240,0.93)"></div>
+  <div class="products-inner" style="position:relative;z-index:1">
   <span class="tag reveal">Product Lines</span>
   <h2 class="section-title reveal">One Platform.<br/>Any Direction.</h2>
   <p class="section-lead reveal">The filler determines the outcome. The same core chemistry — and the same equipment — powers all of them.</p>
@@ -443,43 +445,33 @@
       </div>
     </div>
   </div>
-</div></div>
+</div>
 
 <!-- LOOKS LIKE PLASTIC -->
-<div style="background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<div style="background:var(--black);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div style="max-width:var(--max);margin:0 auto;padding:5rem var(--pad)">
     <span class="tag reveal">Proof</span>
     <h2 class="section-title reveal">Looks Like Plastic.<br/><em>Biodegrades Like Paper.</em></h2>
-    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start;margin-top:3rem" class="biodeg-grid reveal">
-      <div>
-        <p style="font-size:.875rem;font-weight:300;color:var(--grey);line-height:1.8;margin-bottom:2rem">Most "biodegradable" plastics don't actually biodegrade in real-world conditions. The image shows three materials over time — Kaimarra is the only one that delivers plastic-like strength and real biodegradation.</p>
-        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)">
-          <div style="padding:1rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:12px 1fr;gap:.85rem;align-items:start">
-            <div style="width:10px;height:10px;border-radius:50%;background:var(--border);margin-top:.3rem"></div>
-            <div>
-              <div style="font-size:.85rem;font-weight:500;margin-bottom:.15rem">Row 1 — Cellulose (paper) pot</div>
-              <div style="font-size:.78rem;font-weight:300;color:var(--grey);line-height:1.6">Biodegrades but lacks plastic-like strength. Limited automation compatibility.</div>
-            </div>
-          </div>
-          <div style="padding:1rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:12px 1fr;gap:.85rem;align-items:start">
-            <div style="width:10px;height:10px;border-radius:50%;background:var(--green);margin-top:.3rem"></div>
-            <div>
-              <div style="font-size:.85rem;font-weight:500;margin-bottom:.15rem;color:var(--green)">Row 2 — Kaimarra BioActive™ pot</div>
-              <div style="font-size:.78rem;font-weight:300;color:var(--grey);line-height:1.6">Plastic-like strength. Fully compostable. Tunable biodegradation profile.</div>
-            </div>
-          </div>
-          <div style="padding:1rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:12px 1fr;gap:.85rem;align-items:start">
-            <div style="width:10px;height:10px;border-radius:50%;background:var(--border);margin-top:.3rem"></div>
-            <div>
-              <div style="font-size:.85rem;font-weight:500;margin-bottom:.15rem">Row 3 — Bioplastic pot</div>
-              <div style="font-size:.78rem;font-weight:300;color:var(--grey);line-height:1.6">Plastic-like strength but persistent — does not biodegrade in real-world conditions.</div>
-            </div>
-          </div>
+    <div class="reveal" style="margin-top:3rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start" class="biodeg-grid">
+      <div style="display:flex;flex-direction:column;gap:0;padding-top:.25rem">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0"></div>
+          <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);white-space:nowrap">Cellulose pot</div>
         </div>
-        <p style="font-size:.68rem;font-weight:300;color:var(--grey);margin-top:1rem;font-style:italic">Illustrative comparison informed by laboratory biodegradation testing (ISO 14855, industrial composting).</p>
+        <div style="width:1px;background:var(--border);flex:1;margin-left:3.5px"></div>
+        <div style="display:flex;align-items:center;gap:.75rem;margin-top:.5rem;margin-bottom:.5rem">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0"></div>
+          <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);white-space:nowrap">Kaimarra BioActive™</div>
+        </div>
+        <div style="width:1px;background:var(--border);flex:1;margin-left:3.5px"></div>
+        <div style="display:flex;align-items:center;gap:.75rem;margin-top:.5rem">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0"></div>
+          <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);white-space:nowrap">Bioplastic pot</div>
+        </div>
       </div>
-      <img src="photos/biodegradation-comparison.png" alt="Biodegradation comparison: cellulose, BioActive, and bioplastic pots over time" style="width:100%;height:auto;display:block;border:1px solid var(--border)" />
+      <img src="photos/biodegradation-comparison.png" alt="Biodegradation comparison over time" style="width:100%;height:auto;display:block;border:1px solid var(--border)" />
     </div>
+    <p style="font-size:.68rem;font-weight:300;color:var(--grey);margin-top:1rem;font-style:italic">Illustrative comparison informed by laboratory biodegradation testing (ISO 14855, industrial composting).</p>
   </div>
 </div>
 
@@ -487,30 +479,33 @@
 <div class="validation" style="background-image:url('photos/structura-parts.png');background-size:cover;background-position:center;position:relative">
   <div style="position:absolute;inset:0;background:rgba(255,255,255,0.93)"></div>
   <div style="position:relative;z-index:1">
-  <span class="tag reveal">Credibility</span>
-  <h2 class="section-title reveal">Validated at Every Layer</h2>
-  <p class="section-lead reveal">From the chemistry to the field, the platform has been independently tested and commercially proven.</p>
-  <div class="val-grid">
-    <div class="val-card reveal">
-      <div class="val-icon">IP</div>
-      <div class="val-title">Issued Platform Patent</div>
-      <div class="val-text">US Patent 12,163,004 B2, granted December 2024. 29 claims covering the core compatibilization mechanism across polymer and filler systems — not tied to a single formulation or application.</div>
-    </div>
-    <div class="val-card reveal">
-      <div class="val-icon">ISO</div>
-      <div class="val-title">Third-Party Lab Validation</div>
-      <div class="val-text">Biodegradation independently validated to ISO 14855 by a certified third-party laboratory. Full carbon mineralization confirmed — no fragmentation into persistent microplastics.</div>
-    </div>
-    <div class="val-card reveal">
-      <div class="val-icon">MFG</div>
-      <div class="val-title">Commercial Validation</div>
-      <div class="val-text">BioActive materials validated on high-volume commercial injection molding lines at real part thickness and production speeds — with no equipment modifications. Binding commercial agreement in place with an industry-leading horticulture customer.</div>
+    <span class="tag reveal">Credibility</span>
+    <h2 class="section-title reveal">Validated at Every Layer</h2>
+    <p class="section-lead reveal">From the chemistry to the field, the platform has been independently tested and commercially proven.</p>
+    <div class="val-grid">
+      <div class="val-card reveal">
+        <div class="val-icon">IP</div>
+        <div class="val-title">Issued Platform Patent</div>
+        <div class="val-text">US Patent 12,163,004 B2, granted December 2024. 29 claims covering the core compatibilization mechanism across polymer and filler systems — not tied to a single formulation or application.</div>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-icon">ISO</div>
+        <div class="val-title">Third-Party Lab Validation</div>
+        <div class="val-text">Biodegradation independently validated to ISO 14855 by a certified third-party laboratory. Full carbon mineralization confirmed — no fragmentation into persistent microplastics.</div>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-icon">MFG</div>
+        <div class="val-title">Commercial Validation</div>
+        <div class="val-text">BioActive materials validated on high-volume commercial injection molding lines at real part thickness and production speeds — with no equipment modifications. Binding commercial agreement in place with an industry-leading horticulture customer.</div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- TEAM -->
-<div class="team" id="team"><div class="team-inner">
+<div class="team" id="team" style="background-image:url('photos/bioactiveproduct2.jpg');background-size:cover;background-position:center;position:relative">
+  <div style="position:absolute;inset:0;background:rgba(240,240,240,0.94)"></div>
+  <div class="team-inner" style="position:relative;z-index:1">
   <span class="tag reveal">Leadership</span>
   <h2 class="section-title reveal">Experienced Operators in<br/>Materials Commercialization</h2>
   <div class="team-grid">
@@ -551,7 +546,7 @@
       <div class="team-bio">Recipient of the 2014 Perkin Medal — the highest honor in American Industrial Chemistry. Co-inventor of the platform chemistry. One of the founders of the field of Green Chemistry.</div>
     </div>
   </div>
-</div></div>
+</div>
 
 <!-- CONTACT -->
 <div class="contact" id="contact"><div class="contact-inner">
