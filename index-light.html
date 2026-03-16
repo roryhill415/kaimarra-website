@@ -170,7 +170,7 @@
       .process-flow{flex-direction:column}
       .process-step:not(:last-child)::after,.process-step:not(:last-child)::before{display:none}
       .how-grid{grid-template-columns:1fr;gap:3rem}
-      .products-grid,.outcomes,.tech-visuals{grid-template-columns:1fr}
+      .products-grid,.outcomes,.tech-visuals,.biodeg-grid{grid-template-columns:1fr}
       .val-grid{grid-template-columns:1fr}
       .team-grid{grid-template-columns:1fr 1fr}
       .contact-inner{grid-template-columns:1fr;gap:3rem}
@@ -400,7 +400,7 @@
   <p class="section-lead reveal">The filler determines the outcome. The same core chemistry — and the same equipment — powers all of them.</p>
   <div class="products-grid">
     <div class="product-card reveal">
-      <img src="photos/biodegradation-comparison.png" alt="Biodegradation comparison over time" style="width:calc(100% + 6rem);margin:-3rem -3rem 2rem -3rem;height:220px;object-fit:cover;object-position:center;display:block" />
+      <img src="photos/bioactiveproduct1.jpg" alt="BioActive horticulture products" style="width:calc(100% + 6rem);margin:-3rem -3rem 2rem -3rem;height:220px;object-fit:cover;object-position:center;display:block" />
       <div class="product-card-header">
         <div>
           <div class="product-name">Bio<em>Active&trade;</em></div>
@@ -418,7 +418,7 @@
       </div>
     </div>
     <div class="product-card reveal">
-      <img src="photos/structura-parts.png" alt="High-performance composite parts" style="width:calc(100% + 6rem);margin:-3rem -3rem 2rem -3rem;height:220px;object-fit:cover;object-position:center;display:block" />
+      <img src="photos/drone.jpg" alt="High-performance composite drone" style="width:calc(100% + 6rem);margin:-3rem -3rem 2rem -3rem;height:220px;object-fit:cover;object-position:center;display:block" />
       <div class="product-card-header">
         <div>
           <div class="product-name" style="color:var(--grey)">Structura&trade;</div>
@@ -437,6 +437,44 @@
     </div>
   </div>
 </div></div>
+
+<!-- LOOKS LIKE PLASTIC -->
+<div style="background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div style="max-width:var(--max);margin:0 auto;padding:6rem var(--pad);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center" class="biodeg-grid">
+    <div class="reveal">
+      <span class="tag">Proof</span>
+      <h2 class="section-title">Looks Like Plastic.<br/><em>Biodegrades Like Paper.</em></h2>
+      <p class="section-lead" style="margin-bottom:2.5rem">Most "biodegradable" plastics don't actually biodegrade in real-world conditions. Kaimarra's BioActive™ does — verified by independent third-party testing to ISO 14855.</p>
+      <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)">
+        <div style="padding:1.2rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--border);margin-top:.35rem;flex-shrink:0"></div>
+          <div>
+            <div style="font-size:.88rem;font-weight:500;margin-bottom:.2rem">Cellulose (paper) pot</div>
+            <div style="font-size:.82rem;font-weight:300;color:var(--grey);line-height:1.6">Biodegrades but lacks plastic-like strength — limited automation compatibility.</div>
+          </div>
+        </div>
+        <div style="padding:1.2rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--green);margin-top:.35rem;flex-shrink:0"></div>
+          <div>
+            <div style="font-size:.88rem;font-weight:500;margin-bottom:.2rem;color:var(--green)">Kaimarra BioActive™ pot</div>
+            <div style="font-size:.82rem;font-weight:300;color:var(--grey);line-height:1.6">Plastic-like strength. Fully compostable. Tunable biodegradation profile.</div>
+          </div>
+        </div>
+        <div style="padding:1.2rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--border);margin-top:.35rem;flex-shrink:0"></div>
+          <div>
+            <div style="font-size:.88rem;font-weight:500;margin-bottom:.2rem">Bioplastic pot</div>
+            <div style="font-size:.82rem;font-weight:300;color:var(--grey);line-height:1.6">Plastic-like strength but persistent — does not biodegrade in real-world conditions.</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:.72rem;font-weight:300;color:var(--grey);margin-top:1.25rem;font-style:italic">Illustrative comparison informed by laboratory biodegradation testing (ISO 14855, industrial composting).</p>
+    </div>
+    <div class="reveal">
+      <img src="photos/biodegradation-comparison.png" alt="Biodegradation comparison: cellulose, BioActive, and bioplastic pots over time" style="width:100%;height:auto;display:block;border:1px solid var(--border)" />
+    </div>
+  </div>
+</div>
 
 <!-- VALIDATION -->
 <div class="validation">
