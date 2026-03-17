@@ -34,11 +34,11 @@
     /* HERO */
     .hero{
       min-height:100vh;display:flex;align-items:center;
-      padding:7rem var(--pad) 4rem;position:relative;overflow:hidden
+      padding:7rem var(--pad) 4rem;position:relative
     }
     .hero-inner{
       max-width:var(--max);margin:0 auto;width:100%;
-      display:grid;grid-template-columns:1fr 1.15fr;
+      display:grid;grid-template-columns:1fr 1.4fr;
       align-items:center;gap:3rem
     }
     .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 72% 45%,rgba(95,168,0,.06) 0%,transparent 70%);pointer-events:none}
@@ -56,7 +56,7 @@
     .btn-outline{border:1px solid #aaa;color:var(--white);background:transparent}
     .btn-outline:hover{border-color:var(--green);color:var(--green)}
     .hero-right{display:flex;align-items:center;justify-content:center;opacity:0;animation:fade 1s .5s forwards}
-    .hero-diagram{width:100%;height:auto;display:block}
+    .hero-diagram{width:120%;height:auto;display:block;margin-left:-10%}
 
     /* PLATFORM BAND */
     .platform-band{background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4.5rem var(--pad)}
@@ -261,7 +261,7 @@
     </div>
   </div>
   <div class="hero-right">
-    <img src="photos/platform-diagram.png" alt="Kaimarra platform: pellets to end products" class="hero-diagram" style="object-fit:contain;max-height:520px" />
+    <img src="photos/platform-diagram.png" alt="Kaimarra platform: pellets to end products" class="hero-diagram" />
   </div>
   </div>
 </div>
